@@ -15,6 +15,20 @@ public class Event {
 		this.state_type = state;
 	}
 	
+	
+	//This set of methods are for Querying the state_type of each event
+	
+	public boolean isBirth(Event a){
+		return a.state_type.equals("Birth");
+	}
+	
+	public boolean isDeath(Event a){
+		return a.state_type.equals("Birth");
+	}
+	
+	public boolean isInqueue(Event a){
+		return a.state_type.equals("Inqueue");
+	}
 
 }
 
