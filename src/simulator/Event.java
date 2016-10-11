@@ -10,10 +10,16 @@ public class Event {
 	public double death_time;
 	public String state_type;
 	
-	public Event (double b, String state){
-		this.birth_time = b;
+	public Event (double t, String state){
 		this.state_type = state;
+		if (state.equals("Birth")){
+			this.birth_time = t;
+		}
+		else if (state.equals("Death")){
+			this.death_time = t;
+		}
 	}
+	
 	
 	
 	//This set of methods are for Querying the state_type of each event
@@ -26,8 +32,8 @@ public class Event {
 		return a.state_type.equals("Birth");
 	}
 	
-	public boolean isInqueue(Event a){
-		return a.state_type.equals("Inqueue");
+	public boolean isMonitor(Event a){
+		return a.state_type.equals("Monitor");
 	}
 
 }
