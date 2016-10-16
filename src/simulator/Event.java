@@ -1,16 +1,13 @@
 package simulator;
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.Enumeration;
+
 
 public class Event {
 	public double time;
 	//public double service_time;
 	//public double death_time;
-	public String state_type;
+	public int state_type;
 	
-	public Event (double t, String state){
+	public Event (double t, int state){
 		this.state_type = state;
 		this.time = t;
 	}
@@ -19,7 +16,7 @@ public class Event {
 		return time;
 	}
 	
-	public String getState(Event a){
+	public int getState(Event a){
 		return state_type;
 	}
 	
