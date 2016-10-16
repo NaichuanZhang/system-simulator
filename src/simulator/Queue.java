@@ -73,8 +73,8 @@ public class Queue{
 			death_calender(next.getTime());
 		}
 		else{ 
-	    		nextLeft = Double.POSITIVE_INFINITY; // no pending requests, no pending deaths
-	    		nextArrvial += Exp_random.exp_gen(lambda);
+	    	nextLeft = Double.POSITIVE_INFINITY; // no pending requests, no pending deaths
+	    	nextArrvial += Exp_random.exp_gen(lambda);
 	    }
 	}
 	
@@ -89,13 +89,13 @@ public class Queue{
 	}
 	
     public void monitor(PrintWriter out) {
-    	int cur_q = schedule_queue.size();
-    	int cur_w = (cur_q > 0) ? (schedule_queue.size() - 1) : 0;
-    	w += cur_w;
-    	q += cur_q;
+    	int currentInQueue = schedule_queue.size();
+    	int currentWait = (currentInQueue > 0) ? (schedule_queue.size() - 1) : 0;
+    	w += currentWait;
+    	q += currentInQueue;
     	cpt.remove(0);
-    	System.out.println("Check-point time: " + currentTime);
-    	System.out.println("\tnum waiting (w): " + cur_w);
+    	//System.out.println("Cpt time: " + currentTime);
+    	//System.out.println("\twaiting_count (w): " + currentWait);
     	
     }
 	
@@ -105,7 +105,7 @@ public class Queue{
     	while (currentTime < 2*endTime) {
     		if (cpt.get(0) < nextArrvial && cpt.get(0) < nextLeft) {
     			currentTime = cpt.get(0);
-        		System.out.println("\tmonitoring at " + currentTime);
+        		//System.out.println("\tmonitor at " + currentTime);
     			monitor(out); 			
     		}
     		else if (nextArrvial <= nextLeft) { // an object has arrived to the system
@@ -116,7 +116,7 @@ public class Queue{
             }
             else {	// element has been serviced, remove it from queue
             	currentTime = nextLeft;
-        		out.println("\tdeparture at " + currentTime);
+        		out.println("\tleft at " + currentTime);
             	death_gen();
             }           
     	}
@@ -136,7 +136,7 @@ public class Queue{
 
     	System.out.println("Results from M/M/1 Simulation");
     	System.out.println("requests: " + request_count);  
-    	System.out.println("Checkcount ="+ Check_count); //should be double the request
+    	System.out.println("Checkcount ="+ Check_count); 
     	System.out.println("w = " + w/Check_count + "  requests");
     	System.out.println("q = " + q/Check_count + "  requests");
     	System.out.println("Tw = " + Tw/request_count + " sec");
