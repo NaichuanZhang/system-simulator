@@ -19,7 +19,7 @@ public class Queue{
 	double Tw;
 	double Ts;					// actual result
 	double Tq;
-	int w, q;
+	double w, q;
 	
 	int request_count;
 	int served_count;
@@ -122,7 +122,7 @@ public class Queue{
     	}
     	
     	print_info(out);
-    	System.out.close();
+    	out.close();
     }
 	
     
@@ -133,6 +133,7 @@ public class Queue{
     	out.println("Tw = " + Tw/request_count);
     	out.println("Tq = " + Tq/served_count);
     	out.println("Ts = " + Ts/served_count);
+    	out.println("utilization = "+ lambda*Ts/served_count);
 
     	System.out.println("Results from M/M/1 Simulation");
     	System.out.println("requests: " + request_count);  
@@ -141,7 +142,8 @@ public class Queue{
     	System.out.println("q = " + q/Check_count + "  requests");
     	System.out.println("Tw = " + Tw/request_count + " sec");
     	System.out.println("Tq = " + Tq/served_count + "  sec");
-    	System.out.println("Ts = " + Ts/served_count+ "  sec");    	
+    	System.out.println("Ts = " + Ts/served_count+ "  sec"); 
+    	System.out.println("utilization = "+ lambda*Ts/served_count);
     }
 	
 	
