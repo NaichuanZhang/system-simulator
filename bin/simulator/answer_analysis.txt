@@ -1,0 +1,62 @@
+Naichuan Zhang
+cs350
+Collaboration: Arman Sanentz
+
+1.
+
+a.
+--Simulation Results--
+simulation -- 1: lambda = 5.0, Ts = 0.15, Sim length = 1000.0
+Results from M/M/1 Simulation
+requests: 7815
+Checkcount =10126
+w = 1  requests
+q = 2  requests
+Tw = 0.47727648200662093 sec
+Tq = 0.6288310591766655  sec
+Ts = 0.15137129127065815  sec
+
+--Theoretical Result-- 
+util = lambda * Ts = 5*0.15 = 0.75
+q = util/(1-util) = 3
+Tq = q/lambda = 3/5 = 0.6 
+w = q*util = 3*0.75 = 2.25
+Tw = Tq - Ts = 0.6 - 0.15 = 0.45
+
+The Theoretical Result is close to the actual result which indicates that the system is at steady state. The simulation is correct.
+
+b.
+simulation -- 2: lambda = 6.0, Ts = 0.15, Sim length = 1000.0
+Results from M/M/1 Simulation
+requests: 10805
+Checkcount =12000
+w = 7  requests
+q = 8  requests
+Tw = 1.347711470110662 sec
+Tq = 1.5003920020571626  sec
+Ts = 0.15080697568591928  sec
+
+--Theoretical Result--
+util = lambda * Ts = 6*0.15 = 0.9
+q = util/(1-util) = 9
+Tq = q/lambda = 9/6 = 1.5
+w = q*util = 9*0.9 = 8.1
+Tw = Tq - Ts = 1.5 - 0.15 = 1.35
+
+The Theoretical Result is close to the actual result which indicates that the system is at steady state. The simulation is correct.
+
+c.
+simulation -- 3: lambda = 6.0, Ts = 0.2, Sim length = 1000.0
+Results from M/M/1 Simulation
+requests: 11899
+Checkcount =11810
+w = 830  requests
+q = 831  requests
+Tw = 115.64884902697482 sec
+Tq = 137.13846191973295  sec
+Ts = 0.19890031440240877  sec
+
+--Theoretical Result--
+util = lambda * Ts = 6*0.2 = 1.2  
+Utilization is larger than 1 which indicates that the system is not at steady state. This fact also causes the w and q to be high and also result in super long queue time. 
+
